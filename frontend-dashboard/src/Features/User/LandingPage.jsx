@@ -1,8 +1,17 @@
 import React from 'react'
+import { Navigate } from 'react-router-dom'
 
 function LandingPage() {
-  return (
-    <div>LandingPage</div>
+  // if(loggedin !==null) {
+  //   return (
+  //       <div>Hi</div>
+  //     )
+  // }
+  // else {
+  //   return (<Navigate replace to ='/' />);
+  // }
+  return(
+    <div>Hi</div>
   )
 }
 
