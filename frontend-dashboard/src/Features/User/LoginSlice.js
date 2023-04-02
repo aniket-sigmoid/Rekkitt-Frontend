@@ -1,6 +1,6 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 // import axios from 'axios'
-// we need axios to make http requests from frontend (like in this case foe authentication) to backend
+// we need axios to make http requests from frontend (like in this case of authentication) to backend
 
 const initialState = {
     loggedIn: false,
@@ -12,8 +12,6 @@ const initialState = {
 
 const userEmail = "aniket@don"
 const userPassword = "don" 
-
-
 
 const signInSlice = createSlice({
     name: 'signIn',
@@ -32,11 +30,14 @@ const signInSlice = createSlice({
                 console.log("logout")
                 state.loggedIn = false;
             }
+        },
+        handleLogoutSubmit: (state,action) => {
+            state.loggedIn = false;
         }
     }
 })
 
-export const { handleUserInputChange, handleSubmit } = signInSlice.actions;
+export const { handleUserInputChange, handleSubmit, handleLogoutSubmit  } = signInSlice.actions;
 export default signInSlice.reducer
 
 

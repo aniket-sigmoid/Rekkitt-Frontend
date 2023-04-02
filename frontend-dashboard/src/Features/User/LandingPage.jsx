@@ -13,7 +13,6 @@ function LandingPage() {
   const loggedIn = signIn.loggedIn;
 
 
-
   if(loggedIn) {
     return (
         <Box>

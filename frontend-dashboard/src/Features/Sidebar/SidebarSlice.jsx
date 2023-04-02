@@ -1,9 +1,23 @@
-import React from 'react'
+import { createSlice } from '@reduxjs/toolkit';
 
-const SidebarSlice = () => {
-  return (
-    <div>SidebarSlice</div>
-  )
+const initailState = {
+  toggle : true
 }
 
-export default SidebarSlice
+const SidebarSlice  = createSlice({
+  name:'sidebar',
+  initailState,
+  reducers : {
+    handleToggleQueryData : (state, action) => {
+      state.toggle = true
+    },
+    handleToggleSavedData : (state, action) => {
+      state.toggle = false
+    }
+  }
+
+})
+
+export const { handleToggleSavedData,handleToggleQueryData } = SidebarSlice.actions
+export default SidebarSlice.reducer
+
