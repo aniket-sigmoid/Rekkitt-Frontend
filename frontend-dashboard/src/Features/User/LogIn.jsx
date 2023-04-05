@@ -50,7 +50,7 @@ const LogIn = () => {
                     <Box display='flex' flexDirection='column' >
                         <Box>
                             <TextField 
-                                fullWidth = 'true'
+                                fullWidth 
                                 type = 'email'
                                 id = 'user-email' 
                                 placeholder='userEmail'
@@ -68,7 +68,7 @@ const LogIn = () => {
                             />
 
                             <TextField 
-                                fullWidth = 'true'
+                                fullWidth
                                 type = 'password'
                                 id = 'user-password' 
                                 placeholder='Password'
@@ -88,7 +88,7 @@ const LogIn = () => {
                             <Button
                                 type='submit'
                                 variant = 'contained'
-                                fullWidth = 'true'
+                                fullWidth
                                 color="white"
                                 sx ={{
                                     // bgcolor : 'white.main',

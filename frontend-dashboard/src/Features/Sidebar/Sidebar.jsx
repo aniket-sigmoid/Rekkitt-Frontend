@@ -13,7 +13,7 @@ const Sidebar = () => {
 
   return (
     <Box display='flex' flexDirection='column' gap = '1rem' >
-      <Box display='flex' gap='0.5rem' padding='0 0.5rem' color='secondary.main'>
+      <Box display='flex' gap='0.5rem' padding='0 0.5rem' color='secondary.main' marginTop="10px" >
           <MenuIcon color='secondary' sx={{ cursor: 'pointer' }} />
           <Typography color='secondary'>Menu</Typography>
       </Box>

@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initailState = {
+const initialState = {
   toggle : true
 }
 
 const SidebarSlice  = createSlice({
   name:'sidebar',
-  initailState,
+  initialState,
   reducers : {
     handleToggleQueryData : (state, action) => {
       state.toggle = true
@@ -14,6 +14,7 @@ const SidebarSlice  = createSlice({
     handleToggleSavedData : (state, action) => {
       state.toggle = false
     }
+    
   }
 
 })

@@ -33,6 +33,8 @@ const signInSlice = createSlice({
         },
         handleLogoutSubmit: (state,action) => {
             state.loggedIn = false;
+            state.user["email"]="";
+            state.user["pwd"]="";
         }
     }
 })
