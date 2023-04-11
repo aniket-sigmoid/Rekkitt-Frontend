@@ -17,7 +17,7 @@ const Sidebar = () => {
           <MenuIcon color='secondary' sx={{ cursor: 'pointer' }} />
           <Typography color='secondary'>Menu</Typography>
       </Box>
-      <Box display='flex' flexDirection='column' gap = '1rem'> 
+      <Box display='flex' flexDirection='column' gap = '0.5rem' margin="0.5rem 0.5rem"> 
         <Button
           sx = {{
             justifyContent:'start',

@@ -72,8 +72,8 @@ function TableForm() {
   }, [dispatch, table_name]);
 
   return (
-    <Box paddingLeft='1rem' > 
-      <Box marginBottom={3}>
+    <Box>
+      <Box marginBottom={3} marginLeft='10px' >
         <FormControl sx={{ display: "flex" }}>
           <Grid container rowSpacing={0} columnSpacing={4} fontSize="0.9rem">
             <Grid item xs={4}>
@@ -493,7 +493,7 @@ function TableForm() {
             }}
             fullWidth
           >
-            <Box display="flex" gap={3} flexDirection="row-reverse" fullWidth>
+            <Box display="flex" gap={3} flexDirection="row-reverse">
               <Button
                 sx={{
                   justifyContent: "start",
@@ -585,7 +585,7 @@ function TableForm() {
             height="208px"
             margin="auto"
             src={TableFormImg}
-            // alt="Choose Table"
+            alt="Choose Table"
           />
         </Box>
       )}
@@ -594,4 +594,3 @@ function TableForm() {
 }
 
 export default TableForm;
-

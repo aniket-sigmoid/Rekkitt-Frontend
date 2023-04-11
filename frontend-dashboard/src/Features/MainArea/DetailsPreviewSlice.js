@@ -43,7 +43,7 @@ const initialState = {
 export const fetchColumn = createAsyncThunk("/fetchColumn", (table_name) => {
   let data = axios({
     method: "post",
-    url: "/column_name",
+    url: "f/column_name",
     headers: { "Content-Type": "application/json" },
     data: { table_name: table_name.toLowerCase() },
   }).then((response) => response.data);

@@ -23,13 +23,13 @@ function LandingPage() {
             rowSpacing={0}
             // minHeight = '100%'
           >
-            <Grid item xs={12} borderBottom= '1px solid gray' >
+            <Grid item xs={12} md= {12} borderBottom= '1px solid gray' >
               <Header/>
             </Grid>
-            <Grid item xs={2} sm={2} height='100%' borderRight='1px solid gray' minHeight='88vh'>
+            <Grid item xs={2} sm={2} md={2} height='100%' borderRight='1px solid gray' minHeight='88vh'>
               <Sidebar/>
             </Grid>
-            <Grid item xs={10} sm ={10} height='100%'  display='flex' flexDirection='row'  >
+            <Grid item xs={10} sm ={10} md={10} height='100%'  display='flex' flexDirection='row'  >
               {toggle ? <Details /> : <SavedQueries />}
             </Grid>
             <Grid item xs={12} >

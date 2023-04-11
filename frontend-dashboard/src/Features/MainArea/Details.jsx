@@ -15,7 +15,8 @@ const Details = () => {
   const dispatch = useDispatch()
 
   return (
-    <Box>
+    <Box display="flex" flexDirection="column" minHeight="90vh" gap="1.5rem" width="100%" margin="0px 20px 0px 20px">
+      
       <Box display='flex'  marginTop='6px' >
         <Button
           sx = {{
@@ -44,9 +45,11 @@ const Details = () => {
           <Typography color={details === true ? 'text.main' : 'white.main'}>Preview</Typography>
         </Button>
       </Box>
+      
       {details ? <TableForm /> : load ? <LoadData /> : <Preview />}
       {detailPreview.download === "true" ? <Download /> : null}
       {detailPreview.save ? <Save /> : null}
+
     </Box>
   )
 }

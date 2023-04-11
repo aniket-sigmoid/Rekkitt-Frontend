@@ -20,7 +20,7 @@ const Header = () => {
 
   return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{bgcolor:'white.main'}} >
+        <AppBar position="static" sx={{bgcolor:'white.main', boxShadow:"none"}} >
             <Toolbar >
                 <Box margin={2} width = {80} height={42} component='img' src={ReckittLogo} />
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
