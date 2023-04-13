@@ -51,19 +51,19 @@ const rows = [
 
 export default function SavedQueries() {
 
-  const[alignment, setAlignment] = React.useState("left")
+  const [alignment, setAlignment] = React.useState("List")
   const handleAlignment = (event, newAlignment) => {
     if(newAlignment!==null)
     setAlignment(newAlignment) 
   }
 
-  const[searched, setSearched] = React.useState ("")
+  const [searched, setSearched] = React.useState ("")
   const [Datarows, setDataRows] = React.useState(rows)
   //rows is an array of objects
 
   const searchTable = (searchText)  => { 
 
-      if(searchText === '') {setDataRows(rows)
+      if(searchText === '') {setDataRows(() => rows)
         console.log("Empty search string")
       }
       else {
@@ -77,7 +77,7 @@ export default function SavedQueries() {
   }
 
   return (
-    <Box display='flex' flexDirection='column' margin="1rem 1rem 1rem 1rem" sx={{width:1}}>
+    <Box display='flex' flexDirection='column' margin="1rem 1rem 1rem 1rem"  sx={{width:1}}>
       <Typography variant='h5' color='text.main' fontWeight='600'  >
         Saved Queries 
       </Typography>
@@ -130,24 +130,24 @@ export default function SavedQueries() {
             size="small"
           >
             <ToggleButton
-              value="left"
+              value="List"
               sx={{
                 backgroundColor: "#46596A",
                 color: "white.main",
                 ":hover": { color: "black" },
               }}
-              aria-label="left aligned"
+              aria-label="left button active"
             >
               <ListIcon />
             </ToggleButton>
             <ToggleButton
-              value="right"
+              value="Grid"
               sx={{
                 backgroundColor: "#46596A",
                 color: "white.main",
                 ":hover": { color: "black" },
               }}
-              aria-label="right aligned"
+              aria-label="right button active"
             >
               <GridViewIcon />
             </ToggleButton>
@@ -168,11 +168,11 @@ export default function SavedQueries() {
           <TableBody>
           {Datarows.map((row) => (
               <StyledTableRow key={row.QueryName}>
-                <StyledTableCell component="th" scope="row"> {row.QueryName} </StyledTableCell>
+                <StyledTableCell > {row.QueryName} </StyledTableCell>
                 <StyledTableCell align="center">{row.LastQueriedOn}</StyledTableCell>
                 <StyledTableCell align="center">{row.CreatedOn}</StyledTableCell>
                 <StyledTableCell align="center">{row.RequestType}</StyledTableCell>
-                <StyledTableCell align="right"> <MoreVertIcon /> </StyledTableCell>
+                <StyledTableCell align="right"> < MoreVertIcon /> </StyledTableCell>
               </StyledTableRow>
             )) 
           }  

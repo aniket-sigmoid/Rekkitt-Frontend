@@ -72,7 +72,7 @@ function TableForm() {
   }, [dispatch, table_name]);
 
   return (
-    <Box>
+    <Box >
       <Box marginBottom={3} marginLeft='10px' >
         <FormControl sx={{ display: "flex" }}>
           <Grid container rowSpacing={0} columnSpacing={4} fontSize="0.9rem">

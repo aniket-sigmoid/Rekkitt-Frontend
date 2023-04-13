@@ -43,10 +43,11 @@ const initialState = {
 export const fetchColumn = createAsyncThunk("/fetchColumn", (table_name) => {
   let data = axios({
     method: "post",
-    url: "f/column_name",
+    url: "/column_name",
     headers: { "Content-Type": "application/json" },
     data: { table_name: table_name.toLowerCase() },
   }).then((response) => response.data);
+  console.log (data)
   return data;
 });
 
@@ -228,56 +229,57 @@ const DetailPreviewSlice = createSlice({
       state.save = false;
     },
   },
-  // extraReducers: (builder) => {
-  //   builder.addCase(fetchColumn.pending, (state) => {
-  //     state.loading = true;
-  //   });
-  //   builder.addCase(fetchColumn.fulfilled, (state, action) => {
-  //     state.loading = false;
-  //     let data = action.payload;
-  //     state.allColumns = data.data;
-  //     state.error = "";
-  //   });
-  //   builder.addCase(fetchColumn.rejected, (state, action) => {
-  //     state.loading = false;
-  //     state.inputs = [];
-  //     state.error = action.error.message;
-  //   });
-  //   builder.addCase(fetchSavedDataById.pending, (state) => {
-  //       state.loading = true;
-  //     });
-  //   builder.addCase(fetchSavedDataById.fulfilled, (state, action) => {
-  //       state.loading = false;
-  //       let data = action.payload;
-  //       state.table_name = data.data[0][0].table_name;
-  //       state.queryForm.query_data = data.data[0][1];
-  //       state.queryForm.limit = data.data[0][0].limit;
-  //       state.queryForm.sorted_by = data.data[0][0].sorted_by;
-  //       state.queryForm.columns = data.data[0][0].column;
-  //       state.queryForm.filters = data.data[0][0].filter;
-  //       state.queryId = data.data[0][2];
-  //       state.error = "";
-  //       state.isUpdated = true;
-  //   });
-  //   builder.addCase(fetchSavedDataById.rejected, (state, action) => {
-  //       state.loading = false;
-  //       state.inputs = [];
-  //       state.error = action.error.message;
-  //   });
-  //   builder.addCase(updateDataById.pending, (state) => {
-  //       state.loading = true;
-  //     });
-  //   builder.addCase(updateDataById.fulfilled, (state, action) => {
-  //       state.loading = false;
-  //       state.error = "";
-  //       window.location.reload()
-  //   });
-  //   builder.addCase(updateDataById.rejected, (state, action) => {
-  //       state.loading = false;
-  //       state.inputs = [];
-  //       state.error = action.error.message;
-  //   });
-  // },
+  extraReducers: (builder) => {
+    builder.addCase(fetchColumn.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchColumn.fulfilled, (state, action) => {
+      state.loading = false;
+      let data = action.payload;
+      console.log(data);
+      state.allColumns = data;
+      state.error = "";
+    });
+    builder.addCase(fetchColumn.rejected, (state, action) => {
+      state.loading = false;
+      state.inputs = [];
+      state.error = action.error.message;
+    });
+    builder.addCase(fetchSavedDataById.pending, (state) => {
+        state.loading = true;
+      });
+    builder.addCase(fetchSavedDataById.fulfilled, (state, action) => {
+        state.loading = false;
+        let data = action.payload;
+        state.table_name = data.data[0][0].table_name;
+        state.queryForm.query_data = data.data[0][1];
+        state.queryForm.limit = data.data[0][0].limit;
+        state.queryForm.sorted_by = data.data[0][0].sorted_by;
+        state.queryForm.columns = data.data[0][0].column;
+        state.queryForm.filters = data.data[0][0].filter;
+        state.queryId = data.data[0][2];
+        state.error = "";
+        state.isUpdated = true;
+    });
+    builder.addCase(fetchSavedDataById.rejected, (state, action) => {
+        state.loading = false;
+        state.inputs = [];
+        state.error = action.error.message;
+    });
+    builder.addCase(updateDataById.pending, (state) => {
+        state.loading = true;
+      });
+    builder.addCase(updateDataById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = "";
+        window.location.reload()
+    });
+    builder.addCase(updateDataById.rejected, (state, action) => {
+        state.loading = false;
+        state.inputs = [];
+        state.error = action.error.message;
+    });
+  },
 });
 
 export const {

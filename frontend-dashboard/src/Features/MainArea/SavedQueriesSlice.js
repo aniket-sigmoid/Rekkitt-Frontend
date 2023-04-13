@@ -7,9 +7,7 @@ const initialState = {
 const savedQuerySlice = createSlice({
     name:"savedQuery",
     initialState,
-    reducers : {
-
-    }
+    reducers : {}
 
 }) 
 

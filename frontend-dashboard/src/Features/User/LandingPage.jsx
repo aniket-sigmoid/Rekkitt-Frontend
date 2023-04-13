@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
-import {Box, Grid} from '@mui/material'
-import {useSelector} from 'react-redux'
+import { Box, Grid } from '@mui/material'
+import { useSelector } from 'react-redux'
 import Details from '../MainArea/Details'
 import SavedQueries from '../MainArea/SavedQueries'
 import Footer from '../Footer/Footer'
@@ -18,26 +18,20 @@ function LandingPage() {
   if(loggedIn) {
     return (
         <Box >
-          <Grid
-            container
-            rowSpacing={0}
-            // minHeight = '100%'
-          >
+          <Grid container rowSpacing={0}  >
             <Grid item xs={12} md= {12} borderBottom= '1px solid gray' >
               <Header/>
             </Grid>
-            <Grid item xs={2} sm={2} md={2} height='100%' borderRight='1px solid gray' minHeight='88vh'>
+            <Grid item xs={2} sm={2} md={2} height='100%' minHeight='88vh'>
               <Sidebar/>
             </Grid>
-            <Grid item xs={10} sm ={10} md={10} height='100%'  display='flex' flexDirection='row'  >
+            <Grid item xs={10} sm ={10} md={10} height='100%'  display='flex' flexDirection='row' borderLeft='1px solid gray' minHeight='88vh' >
               {toggle ? <Details /> : <SavedQueries />}
             </Grid>
             <Grid item xs={12} >
               <Footer/>
             </Grid>
-
           </Grid>
-
         </Box>
       )
   }
