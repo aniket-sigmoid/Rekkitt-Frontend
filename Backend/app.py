@@ -101,20 +101,26 @@ def logout():
 def column_name():
     table_name = request.json.get("table_name")
     print(table_name)
-    conn = psycopg2.connect(database=os.getenv('DATABASE'), 
-                        user=os.getenv('USER'),
-                        password=os.getenv('PASSWORD'), 
-                        host="localhost", port="5432")
+    # conn = psycopg2.connect(database=os.getenv('DATABASE'), 
+    #                     user=os.getenv('USER'),
+    #                     password=os.getenv('PASSWORD'), 
+    #                     host="localhost", port="5432")
 
 
-    cur = conn.cursor()
-    print("hello")
-    cur.execute(f"SELECT Column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = '{table_name}';")
-    data = cur.fetchall()
-    cur.close()
-    conn.close()
-  
-    return {"data":data}
+    # cur = conn.cursor()
+    # print("hello")
+    # cur.execute(f"SELECT Column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = '{table_name}';")
+    # data = cur.fetchall()
+    # cur.close()
+    # conn.close()
+    dataCustomers = [["first_name"], ["last_name"],["company_name"],["address"], ["country"], ["city"], ["state"], ["zip"], ["phone1"], ["phone2"], ["email"], ["web"]]
+    dataProducts = [["uniq_id"], ["crawl_timestamp"],["product_url"],["product_name"], ["product_category"], ["pid"], ["retail_price"], ["discounted_price"], ["image"], ["is_FK_advantage_product"], ["description"], ["product_rating"], ["overall_rating"]]
+    if (table_name == 'products'): 
+      data = dataProducts
+    else: data = dataCustomers
+    print(data)
+    return jsonify(data)
+    
    
 def save_csv(filename,column_name,row_data):
   with open(filename, 'w') as csvfile: 
